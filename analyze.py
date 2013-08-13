@@ -30,7 +30,8 @@ for i in xrange(0,k):
                 cleardata += chr(data)
             else:
                 break
-        if len(cleardata) == len(btext[0]):
+        # BROKEN do not use
+        if len(cleardata) == len(btext[i]):
             fullkey += chr(key)
 
 print fullkey
