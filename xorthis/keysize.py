@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 import base64
 import sys
@@ -25,5 +25,5 @@ for k in xrange(2,256):
     if d < min_d:
         min_k, min_d = k,d
 
-print "----------"
-print "Probable keysize is %d with dist %f" % (min_k, min_d)
+print("----------")
+print("Probable keysize is %d with dist %f" % (min_k, min_d))

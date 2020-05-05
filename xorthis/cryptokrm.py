@@ -10,7 +10,6 @@ def xorstr(message, key):
         ekey = (key * (len(message)/len(key)+1))[:len(message)]
     else:
         ekey = key
-
     return xor(message,ekey)
 
 def hamming_dist(s1,s2):

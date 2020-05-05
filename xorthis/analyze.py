@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 import base64
 import sys
@@ -34,4 +34,4 @@ for i in xrange(0,k):
         if len(cleardata) == len(btext[i]):
             fullkey += chr(key)
 
-print fullkey
+print(fullkey)
