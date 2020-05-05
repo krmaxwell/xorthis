@@ -16,6 +16,12 @@ def xorstr(message, key):
 
 
 def hamming_dist(s1, s2):
+    '''Compute the Hamming distance of two strings
+
+    Takes two strings s1, s2 and determines the number of bits where they
+    differ. See https://en.wikipedia.org/wiki/Hamming_distance for additional
+    background.
+    '''
     s = xor(s1, s2)
     bits = 0
 
