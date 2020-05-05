@@ -3,9 +3,7 @@
 import base64
 import sys
 
-from cryptokrm import *
-
-with open(sys.argv[1],'rb') as f:
+with open(sys.argv[1], 'rb') as f:
     message = f.read()
 
 # assumes input is base64
@@ -20,13 +18,13 @@ btext = [0]*k
 
 fullkey = ''
 
-for i in xrange(0,k):
+for i in range(0, k):
     btext[i] = ctext[i::k]
-    for key in xrange(0,256):
+    for key in range(0, 256):
         cleardata = ''
-        for j in xrange(0,len(btext[i])):
+        for j in range(0, len(btext[i])):
             data = ord(btext[i][j]) ^ key
-            if data in xrange(32,127) or data == 10 or data == 13:
+            if data in range`(32, 127) or data == 10 or data == 13:
                 cleardata += chr(data)
             else:
                 break
