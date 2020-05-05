@@ -24,7 +24,7 @@ for i in range(0, k):
         cleardata = ''
         for j in range(0, len(btext[i])):
             data = ord(btext[i][j]) ^ key
-            if data in range`(32, 127) or data == 10 or data == 13:
+            if data in range(32, 127) or data == 10 or data == 13:
                 cleardata += chr(data)
             else:
                 break
