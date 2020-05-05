@@ -1,4 +1,6 @@
-# An assortment of functions useful in crypto
+'''An assortment of functions useful in crypto'''
+
+import base64
 
 
 def xor(s1, s2):
@@ -31,3 +33,24 @@ def hamming_dist(s1, s2):
         return bits
     else:
         return False
+
+
+def keysize(message):
+    '''Calculate key size and distance for a string, return as tuple'''
+    # `message` must be a base64-encoded string
+    ciphertext = base64.b64decode(message)
+
+    min_keysize, min_distance = 0, 1000
+
+    for k in range(2, 256):
+        # Hamming dist between block 1 and block 2
+        d1 = float(hamming_dist(ciphertext[k*0:k*1], ciphertext[k*1:k*2])) / k
+        # Hamming dist between block 2 and block 3
+        d2 = float(hamming_dist(ciphertext[k*2:k*3], ciphertext[k*3:k*4])) / k
+        # Hamming dist between block 3 and block 4
+        d3 = float(hamming_dist(ciphertext[k*4:k*5], ciphertext[k*5:k*6])) / k
+        distance = (d1+d2+d3)/3
+        if distance < min_distance:
+            min_keysize, min_distance = k, distance
+
+    return min_keysize, min_distance
