@@ -4,12 +4,14 @@ import base64
 
 
 def xor(s1, s2):
+    '''takes two strings of equal length and produces their XOR combination'''
     if len(s1) == len(s2):
         return ''.join(chr(ord(a) ^ ord(b)) for a, b in zip(s1, s2))
     return False
 
 
 def xorstr(message, key):
+    '''Encrypts message with key using XOR'''
     if len(key) < len(message):
         ekey = (key * (len(message)/len(key)+1))[:len(message)]
     else:
